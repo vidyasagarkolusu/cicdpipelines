@@ -7,7 +7,7 @@ pipeline {
 	stages {
 		stage ('Checkout') {
 			steps{
-			git 'https://github.com/vidyasagarkolusu/cicdpipelines.git'
+			git 'https://github.com/devops-trainer/DevOpsClassCodes.git'
 			}
 		}
 		stage ('Build') {
