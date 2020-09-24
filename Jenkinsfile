@@ -2,13 +2,7 @@ pipeline {
 	agent any
 	stages {
 		stage ('Checkout') {
-		checkout([$class: 'GitSCM', 
-    branches: [[name: '*/master']], 
-    doGenerateSubmoduleConfigurations: false, 
-    extensions: [[$class: 'CleanCheckout']], 
-    submoduleCfg: [], 
-    userRemoteConfigs: [[credentialsId: 'git-credentials', url: 'https://github.com/devops-trainer/DevOpsClassCodes.git']]
-])
+			git 'https://github.com/vidyasagarkolusu/cicdpipelines.git'
 		}
 		stage ('Build') {
 			echo "from Build Stage"
