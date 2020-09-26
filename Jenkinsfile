@@ -22,7 +22,7 @@ pipeline {
     }
     steps {
         withSonarQubeEnv('SonarQubeServer') {
-            sh "${scannerHome}/bin/sonar-scanner"
+            sh "${scannerHome}/bin/sonar-scanner -Dsonar.host.ur=http://3.7.66.233:9000/ -Dsonar.projectKey=${JOB_NAME} -Dsonar.projectName=${JOB_NAME} -Dsonar.sources=/var/lib/jenkins/workspace/Pip-01/src"
         }
         timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
