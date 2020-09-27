@@ -28,6 +28,20 @@ pipeline {
           //  waitForQualityGate abortPipeline: true
         // }
     }
-}
+} //end Sonar
+	stage ('Deploy') {
+			steps {
+			echo "from Deploy Stage"
+		sh script: """\
+			cd /var/www/Test/ \n
+			pwd \n
+			ll \n
+			rm -rf *.war
+			cp /var/lib/jenkins/workspace/Pip-01/target/addressbook.war  /var/www/Test/
+			pwd \n
+			ll \n
+			"""
+			}
+		}
 	}
 }
